@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<title>COX</title>
+		<meta name="description" content="distributed cox">
+		<meta name="keywords" content="distributed, cox, sharing, shared, data, model, privacy">
+		<meta name="author" content="Asher McCall Garland">
+		<meta charset="UTF-8">
+		<link href="./css/styles.css" rel="stylesheet" type="text/css">
+		<script src="./js/jquery-1.8.2.min.js" language="JavaScript" type="text/javascript"></script>
+		<script src="./js/participant.js" language="JavaScript" type="text/javascript"></script>
+
+	</head>
+	<body>
+
+		<div id = 'mainContainer'>
+		
+	  <body onLoad="checkReadyStart();">
+			<div id = 'frontPage_step4b' class = 'container'>
+				<form action="useruploadservlet" method = "post" enctype="application/x-www-form-urlencoded" id='joinTask'>
+				<div class = 'top'>
+					<div class = 'alignleft'>
+						<h1>Step 4:</h1>
+					</div>
+					<div class = 'alignleft'>
+						<h2>Join a task</h2>
+					</div>
+					<div class = 'clear'></div>
+				</div>
+			<div class='body'>
+		    <div id = 'frontPage_step4binformation' class ='container alignright'>	
+				<div class='top'>
+					<h3>Task Parameters:</h3>
+				</div>
+				
+				<div class = 'body'>
+							<div>Task Name: </div>
+							<div id='step4b_taskName'></div>
+							<div>Initiator Email: </div>
+							<div id='step4b_initiatorEmail'></div>
+					<div class = 'clear'></div>
+				</div>
+				
+				<div class='top'>
+					<h3>Participant Status :</h3>
+				</div>
+				
+				<div class = 'body'>
+					<div id="readyStatus">show the status of participants here </div>
+					<div class = 'clear'></div>
+				</div>	
+				
+				<div class='top'>
+					<h3>Task data properties :</h3>
+				</div>
+				
+				<div class = 'body'>
+					<div id="taskdata_property">show task data property </div>
+					<div class = 'clear'></div>
+				</div>	
+				<div>
+				<div class='alignright'><input type="hidden" name="taskProperty" id='taskProperty'  value='taskProperty' size="50"/></div>
+				</div>			
+				
+				<div class='top'>
+					<h3>User data properties :</h3>
+				</div>
+				
+				<div class = 'body'>
+					<div id='step4_properties'>show your data property</div>
+					<div class = 'clear'></div>
+				</div>	
+				
+				<div class='body'>
+					<div>
+						<applet code="cox.ChooseFileApplet.class" archive="ChooseFileApplet.jar, Jama-1.0.2.jar" width=400 height=55" MAYSCRIPT>
+							<!-- The parameter of applet is added by jwc -->
+							<param name="showFilePath" value="showFilePath">
+						</applet>
+						<div id = 'choosefile' class = 'formComfirmationImg wrong alignright' ></div>
+					</div>
+					<div>
+						<input type="hidden" name="userFilePath" id='userFilePath'  value='userFilePath' size="50"/>
+						<input type="hidden" name="userProperty" id='userProperty'  value='userProperty' size="50"/>
+					</div>
+					<button type='button' id='step4b_submit' >Submit</button>
+					<div class = 'clear'></div>
+				</div>	
+				</div>
+				<div class = 'clear'></div>
+			</div>		
+			</form>		
+		  </div>
+	</body>
+	</div>
+	</body>
+</html>
