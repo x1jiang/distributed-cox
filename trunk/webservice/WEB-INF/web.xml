@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="true">  
+      
+    <servlet>
+        <servlet-name>login</servlet-name>
+        <servlet-class>cox.UserLoginServlet</servlet-class>
+    </servlet>
+    
+     <servlet-mapping>
+        <servlet-name>login	</servlet-name>
+        <url-pattern>/userlogin</url-pattern>
+    </servlet-mapping>
+   
+      <servlet>
+        <servlet-name>userregistservlet</servlet-name>
+        <servlet-class>cox.UserRegistServlet</servlet-class>
+    </servlet>
+    
+      <servlet-mapping>
+        <servlet-name>userregistservlet</servlet-name>
+        <url-pattern>/userregistservlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>createcoxtaskservlet</servlet-name>
+        <servlet-class>cox.CreateCoxTaskServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>createcoxtaskservlet</servlet-name>
+        <url-pattern>/createcoxtaskservlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>BeforeCreateCoxTaskServlet</servlet-name>
+        <servlet-class>cox.BeforeCreateCoxTaskServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BeforeCreateCoxTaskServlet</servlet-name>
+        <url-pattern>/beforeCreateCoxTaskServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+		<servlet-name>echo</servlet-name>
+		<servlet-class>EchoServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>echo</servlet-name>
+		<url-pattern>/echo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>checkready</servlet-name>
+		<servlet-class>cox.checkReadyServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>checkready</servlet-name>
+		<url-pattern>/checkready</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>useruploadservlet</servlet-name>
+		<servlet-class>cox.UserUploadServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>useruploadservlet</servlet-name>
+		<url-pattern>/useruploadservlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>coxserverservlet</servlet-name>
+		<servlet-class>cox.CoxServerServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>coxserverservlet</servlet-name>
+		<url-pattern>/coxserverservlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>gstest</servlet-name>
+		<servlet-class>cox.GSTest</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>gstest</servlet-name>
+		<url-pattern>/gstest</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>mcstest</servlet-name>
+		<servlet-class>cox.MCSTest</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>mcstest</servlet-name>
+		<url-pattern>/mcstest</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>beforecalservlet</servlet-name>
+		<servlet-class>cox.BeforeCalculateServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>beforecalservlet</servlet-name>
+		<url-pattern>/beforecalservlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>testcomparator</servlet-name>
+		<servlet-class>cox.TestComparator</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>testcomparator</servlet-name>
+		<url-pattern>/testcomparator</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>testupload</servlet-name>
+		<servlet-class>cox.TestUpload</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>testupload</servlet-name>
+		<url-pattern>/testupload</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>getreportservlet</servlet-name>
+		<servlet-class>cox.GetReportServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>getreportservlet</servlet-name>
+		<url-pattern>/getreportservlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>getlocalreportservlet</servlet-name>
+		<servlet-class>cox.GetLocalReportServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>getlocalreportservlet</servlet-name>
+		<url-pattern>/getlocalreportservlet</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>checktasknameservlet</servlet-name>
+		<servlet-class>cox.CheckTasknameServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>checktasknameservlet</servlet-name>
+		<url-pattern>/checktasknameservlet</url-pattern>
+	</servlet-mapping>
+        
+      <servlet>
+		<servlet-name>checkregisteremailservlet</servlet-name>
+		<servlet-class>cox.CheckRegisteremailServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>checkregisteremailservlet</servlet-name>
+		<url-pattern>/checkregisteremailservlet</url-pattern>
+	</servlet-mapping>
+	
+	 <servlet>
+		<servlet-name>gettaskpropertyservlet</servlet-name>
+		<servlet-class>cox.GettaskPropertyServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>gettaskpropertyservlet</servlet-name>
+		<url-pattern>/gettaskpropertyservlet</url-pattern>
+	</servlet-mapping>
+</web-app>
