@@ -44,6 +44,7 @@ public class LocalTestApplet extends JApplet implements ActionListener{
 	private String ResultString="";
 	private String Yaxis="";
 	private String Xaxis="";
+	private int Step=0;
 	private String betaString = "0.5#0.5#0.5#0.5#0.5#0.5#0.5#0.5#0.5#0.5#0.5#0.5#0.5#0.5#0.5#0.5#0.5#0.5#0.5#0.5";
 	private String surString = "1.0#2.0#3.0#4.0#5.0#6.0#7.0#8.0#9.0#10.0#11.0#12.0#13.0#14.0#15.0#16.0#17.0#18.0" +
 			"#19.0#20.0#21.0#22.0#23.0#24.0#25.0#26.0#27.0#28.0#29.0#31.0#32.0#33.0#34.0#35.0#36.0#37.0#38.0#39.0" +
@@ -156,6 +157,9 @@ public class LocalTestApplet extends JApplet implements ActionListener{
 	public String getXaxis(){
 		return Xaxis;
 	}
+	public int getStep(){
+		return Step;
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -204,7 +208,7 @@ public class LocalTestApplet extends JApplet implements ActionListener{
 				Matrix Tuniq=null;
 				Vector< Matrix > ZZv, ZZtmp, thetaZZ, TZTZv;
 				int m=-1, full_n=0, n, i, j, iter=0, k, ki;
-
+				
 			    file_stream = new FileInputStream(fileName_);
 			    file_in = new DataInputStream(file_stream);
 			    file_br = new BufferedReader(new InputStreamReader(file_in));
@@ -249,6 +253,7 @@ public class LocalTestApplet extends JApplet implements ActionListener{
 				}
 				Matrix sur = new Matrix(surValue);
 				n= ss.length;
+				Step = n/10;
 				System.out.println("print received beta");
 				beta.print(7,7);
 				System.out.println("print received Baseline Fn");
@@ -296,6 +301,7 @@ public class LocalTestApplet extends JApplet implements ActionListener{
 				}
 				//ResultString=ResultString+"</table>";
 				
+				
 				for(j=0;j<full_n;j++){
 					if(j==0){
 						Yaxis = Yaxis + "[{";
@@ -305,15 +311,16 @@ public class LocalTestApplet extends JApplet implements ActionListener{
 					Yaxis = Yaxis + "name: 'Record_" + (j+1) +"', data: [";
 					for(i=0;i<n;i++){
 						if(i==n-1){
-							Yaxis = Yaxis + SurvivalFn.get(i,j) + "]}";
+							Yaxis = Yaxis + Math.rint(SurvivalFn.get(i,j)*10000)/100 + "]}";
 						}else{
-							Yaxis = Yaxis + SurvivalFn.get(i,j) + ",";
+							Yaxis = Yaxis + Math.rint(SurvivalFn.get(i,j)*10000)/100 + ",";
 						}
 					}
 				}Yaxis = Yaxis + "]";
 				
 				System.out.println("Yaxis is: "+Yaxis);
 				System.out.println("Xaxis is: "+Xaxis);
+				System.out.println("Step is: "+Step);
 				//System.out.println("ResultString is: "+ResultString);
 					getAppletContext().showDocument(new URL("javascript:window.accessAppletResult()"));
 					
