@@ -132,6 +132,7 @@
 								<tr><td align="center"></td>
 									<tr><td><table width = 680 class="content">
  -->										<tr><td>Test COX using local data</td></tr>
+											 <tr><td>Delay may happen when records>50</td></tr>
 <%
 	Properties properties = new Properties();
 	InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("/config.properties");
@@ -198,14 +199,11 @@
 function accessAppletResult()
 {
 	//var fn = "TestResult";
-	alert("in accessAppletMethod");
+	//alert("in accessAppletMethod");
     var Y_axis = document.applets[0].getYaxis();
     var X_axis = document.applets[0].getXaxis();
-    //var Y_axis = "[4,5,6]";
-	//var X_axis = "[1,2,3]";
-	//var Y_axis = [4,5,6];
-	//var X_axis = [4,5,6];	
-	DrawCurve(eval(X_axis), eval(Y_axis));
+    var stepVal = document.applets[0].getStep();
+	DrawCurve(eval(X_axis), eval(Y_axis), eval(stepVal));
     //DrawCurve(X_axis,Y_axis);
     //document.getElementById('Y_axis').innerHTML = Y_axis;
     //document.getElementById('X_axis').innerHTML = X_axis;
@@ -214,11 +212,11 @@ function accessAppletResult()
 
 
 </td></tr>
-
+ 
 <tr>
 <td><input type="hidden" name="showFilePath" id='showFilePath'  value='<%=showFilePath %>' size="50"/></td>
 </tr>
- 
+
  <!-- show axis 
  <tr>
  <td><div id="Y_axis" align="center" valign="middle">Show Y_axis below:</div></td>
