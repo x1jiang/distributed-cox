@@ -1,10 +1,10 @@
 //$(function (X_axis,Y_axis) {
-function DrawCurve(X_axis,Y_axis) {
+function DrawCurve(X_axis,Y_axis,stepVal) {
         $('#container').highcharts({
             chart: {
                 type: 'line',
                 marginRight: 130,
-                marginBottom: 25
+                marginBottom: 60
             },
             title: {
                 text: 'Kaplan-Meier Curve for Testing Data',
@@ -18,11 +18,14 @@ function DrawCurve(X_axis,Y_axis) {
                 title: {
                     text: 'Survival Time'
                 },
+                labels:{
+                	step: stepVal
+                },
                 categories: X_axis
             },
             yAxis: {
                 title: {
-                    text: 'Survival Function'
+                    text: 'Survival Function (%)'
                 },
                 plotLines: [{
                     value: 0,
@@ -30,11 +33,18 @@ function DrawCurve(X_axis,Y_axis) {
                     color: '#808080'
                 }]
             },
-            /*
+            
             tooltip: {
                 valueSuffix: '%'
             },
-            */
+            
+            plotOptions: {
+                series: {
+                    marker: {
+                        radius: 0
+                    }
+                }
+            },
             legend: {
                 layout: 'vertical',
                 align: 'right',
