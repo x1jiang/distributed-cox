@@ -1,0 +1,199 @@
+<html><head>
+		<title>WebCox</title>
+		<link href="./css/styles.css" rel="stylesheet" type="text/css">
+		</script><script src="./js/jquery-1.8.2.min.js" language="JavaScript" type="text/javascript"></script>
+		<script src="./js/utility_wait.js" language="JavaScript" type="text/javascript"></script>
+	</head>
+
+	<body>
+
+		<div id="main_container">
+
+			<div id="left_container">
+
+				<!-- Logo Start -->
+				<div id="title">
+
+					<div id="logo">
+						<h1>COX</h1>
+					</div>
+
+					<div id="name">
+						<h3>Web-based Distributed Cox Regression Model</h3>
+					</div>
+
+				</div>
+				<!-- Logo End -->
+
+				<!-- Navigation Start-->
+				<div id="navigation" class="border rounded-upper">
+
+					<div id="nav_header" class="bottom-border">
+						<h3>Navigation</h3></div>
+
+					<a id="nav_login" class="nav bottom-border" href="./login.html">
+						<div class="nav_icon">
+						</div>
+						<div class="nav_text">
+							<h2 class="">Login</h2>
+							<p>Log into the COX system</p>
+						</div>
+					</a>
+					
+					<a id="nav_home" class="nav bottom-border" href="./index.html">
+						<div class="nav_icon">
+						</div>
+						<div class="nav_text">
+							<h2 >Home</h2>
+							<p>View your COX profile page</p>
+						</div>
+					</a>
+
+					<a id="nav_instructions" class="nav bottom-border" href="./instructions.html">
+						<div class="nav_icon">
+						</div>
+						<div class="nav_text">
+							<h2 class="">Instructions</h2>
+							<p>Learn the fundamentals of using COX</p>
+						</div>
+					</a>
+
+					<a id="nav_registration" class="nav bottom-border" href="./registration.html">
+						<div class="nav_icon">
+						</div>
+						<div class="nav_text">
+							<h2>Registration</h2>
+							<p>Register an account in COX</p>
+						</div>
+					</a>
+
+					<a id="nav_createTask" class="nav bottom-border" href="./createTask.html">
+						<div class="nav_icon">
+						</div>
+						<div class="nav_text">
+							<h2>Create Task</h2>
+							<p>Create a new COX task</p>
+						</div>
+					</a>
+					
+					<a id="nav_wait" class="nav bottom-border" href="./WaitForParticipants.html">
+						<div class="nav_icon">
+						</div>
+						<div class="nav_text">
+							<h2 class="hightlighted">WaitForParticipants</h2>
+							<p>Wait for other participants</p>
+						</div>
+					</a>
+
+					<a id="nav_compute" class="nav bottom-border" href="./computation.jsp">
+						<div class="nav_icon">
+						</div>
+						<div class="nav_text">
+							<h2>Computation</h2>
+							<p>Computation process</p>
+						</div>
+					</a>
+
+					<a id="team" class="nav bottom-border" href="./team.html">
+						<div class="nav_icon">
+						</div>
+						<div class="nav_text">
+							<h2>Team</h2>
+							<p>Team members</p>
+						</div>
+					</a>
+					
+				</div>
+				<!-- Navigation End-->
+			</div>
+
+			<div id="right_container" class="border rounded-upper">
+
+				<div id="header" class="bottom-border">
+					<h2>Wait for Participants</h2>
+				</div>
+
+				<div id="error_display">
+
+				</div>
+
+				<div id="content">
+				
+				<div id = 'frontPage_information' class ='container'>	
+				<div class='top'>
+					<h3>Basic task information:</h3>
+				</div>
+				
+				<div class = 'body'>
+							<div>Task Name: </div>
+							<div id='taskName'></div>
+							<div>Initiator's Email: </div>
+							<div id='initiatorEmail'></div>
+					<div class = 'clear'></div>
+				</div>
+				
+				<div class='top'>
+					<h3>Participants' Status :</h3>
+				</div>
+				
+				<div class = 'body'>
+					<div id="readyStatus">The status of participants </div>
+					<div class = 'clear'></div>
+				</div>	
+				
+				<div class='top'>
+					<h3>Cox data attribute names:</h3>
+				</div>
+				
+				<div class = 'body'>
+					<div id="taskdata_property">Local attribute names (validated for all participants): </div>
+					<div class = 'clear'></div>
+				</div>	
+				<div>
+				<div class='alignright'><input type="hidden" name="taskProperty" id='taskProperty'  value='taskProperty' size="50"/></div>
+				</div>			
+				<div class='submitData hide'>
+				<div class='top'>
+					<h3>Local attribute names (validated for all participants): </h3>
+				</div>
+				
+				<div class = 'body'>
+					<div id='properties'>attribute names</div>
+					<div class = 'clear'></div>
+				</div>	
+				
+				<div class='body '>
+					<div>
+						<applet code="cox.ChooseFileApplet.class" archive="WebCox.jar" width=400 height=65" MAYSCRIPT>
+							<!-- The parameter of applet is added by jwc -->
+							<param name="showFilePath" value="showFilePath">
+						</applet>
+						<div id = 'choosefile' class = 'formComfirmationImg wrong alignright' ></div>
+					</div>
+					<div>
+						<input type="hidden" name="userFilePath" id='userFilePath'  value='userFilePath' size="50"/>
+						<input type="hidden" name="userProperty" id='userProperty'  value='userProperty' size="50"/>
+					</div>
+					<button type='button' id='submit'>Submit</button>
+					<div class = 'clear'></div>
+				</div>		
+				</div>
+					<button type = 'button' id='show_submit'>Provide training data location</button>
+					<button type = 'button' id='begin_computation'>Start Computation</button>
+				
+				<script type="text/javascript"><!--
+							
+							function testPause2() {
+							  document.getElementById('error_display').innerHTML = '<p>Please wait until the status of participants change to hit compute.</p>';
+							  setTimeout(function() { document.getElementById('error_display').innerHTML = ''; }, 3000);
+							}
+							
+							document.getElementById('begin_computation').onmouseover  = testPause2;
+				--></script>
+				</div>
+				
+				<div class = 'clear'></div>
+			</div>		
+				</div>
+		</div>
+</body></html>
